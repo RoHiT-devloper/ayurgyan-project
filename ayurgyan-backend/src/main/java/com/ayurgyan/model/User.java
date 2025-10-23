@@ -25,6 +25,7 @@ public class User {
     private String password;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private UserRole role = UserRole.USER;
 
     @Column(name = "created_at")
@@ -51,6 +52,7 @@ public class User {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.role = UserRole.USER;
     }
 
     // Getters and Setters
