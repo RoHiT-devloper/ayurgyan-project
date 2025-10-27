@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 // Use port 8081 without /api context path
-const API_BASE_URL = 'http://localhost:8081';
+// const API_BASE_URL = 'http://localhost:8081';
+const API_BASE_URL = 'http://localhost:8080/api';
 
 export const api = axios.create({
   baseURL: API_BASE_URL,

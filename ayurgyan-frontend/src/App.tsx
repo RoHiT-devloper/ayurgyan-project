@@ -9,7 +9,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import SearchResults from './pages/SearchResults';
 import About from './pages/About';
-import './styles/globals.css';
+import './styles/globals.css'; // Only import this once
 
 const App: React.FC = () => {
   return (

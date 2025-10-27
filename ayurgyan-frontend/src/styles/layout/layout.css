@@ -1,0 +1,33 @@
+@layer components {
+  .layout {
+    @apply min-h-screen flex flex-col;
+  }
+  
+  .main-content {
+    @apply flex-1;
+  }
+  
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8;
+  }
+  
+  .page-header {
+    @apply mb-8;
+  }
+  
+  .page-title {
+    @apply text-3xl font-bold text-gray-900 mb-2;
+  }
+  
+  .page-description {
+    @apply text-gray-600 text-lg;
+  }
+  
+  .section {
+    @apply mb-12;
+  }
+  
+  .section-title {
+    @apply text-2xl font-semibold text-gray-900 mb-6;
+  }
+}

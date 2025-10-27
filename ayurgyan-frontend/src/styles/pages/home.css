@@ -1,0 +1,42 @@
+@layer components {
+  .hero-section {
+    background: linear-gradient(135deg, #f0f9f4 0%, rgba(223, 246, 235, 0.8) 50%, rgba(240, 249, 244, 0.9) 100%);
+    @apply py-20;
+  }
+  
+  .hero-content {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center;
+  }
+  
+  .hero-title {
+    @apply text-4xl md:text-6xl font-bold text-gray-900 mb-6;
+  }
+  
+  .hero-description {
+    @apply text-xl text-gray-600 mb-8 max-w-3xl mx-auto;
+  }
+  
+  .hero-actions {
+    @apply flex flex-col sm:flex-row gap-4 justify-center;
+  }
+  
+  .features-section {
+    @apply py-16 bg-white;
+  }
+  
+  .features-grid {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-8;
+  }
+  
+  .feature-icon {
+    @apply w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center text-primary-600 mx-auto mb-4;
+  }
+  
+  .cta-section {
+    @apply py-16 bg-gray-50;
+  }
+  
+  .disclaimer-banner {
+    @apply bg-yellow-50 border-t border-yellow-200;
+  }
+}

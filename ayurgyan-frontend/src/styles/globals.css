@@ -2,74 +2,75 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+/* Import all component styles */
+@import './components/buttons.css';
+@import './components/cards.css';
+@import './components/forms.css';
+@import './components/navigation.css';
+@import './components/badges.css';
+@import './components/loading.css';
+
+/* Import layout styles */
+@import './layout/header.css';
+@import './layout/footer.css';
+@import './layout/layout.css';
+
+/* Import page styles */
+@import './pages/home.css';
+@import './pages/herb-catalog.css';
+@import './pages/herb-detail.css';
+@import './pages/auth.css';
+
 /* Base styles */
 @layer base {
   html {
     font-family: 'Inter', system-ui, sans-serif;
+    scroll-behavior: smooth;
   }
   
   body {
-    @apply bg-gray-50 text-gray-900;
+    @apply bg-gray-50 text-gray-900 antialiased;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #88d8b1;
+    border-radius: 6px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #4dc390;
   }
 }
 
-/* Component styles */
-@layer components {
-  .btn {
-    @apply inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+/* Utility classes */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
   }
   
-  .btn-primary {
-    @apply bg-primary-500 text-white hover:bg-primary-600 focus:ring-primary-500;
-  }
-  
-  .btn-secondary {
-    @apply bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-500;
-  }
-  
-  .btn-danger {
-    @apply bg-red-600 text-white hover:bg-red-700 focus:ring-red-500;
-  }
-  
-  .card {
-    @apply bg-white rounded-lg shadow-sm border border-gray-200;
-  }
-  
-  .input {
-    @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
-  }
-  
-  .badge {
-    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
-  }
-
-  /* Safety level badges */
-  .badge-safe {
-    @apply bg-green-100 text-green-800;
-  }
-
-  .badge-caution {
-    @apply bg-yellow-100 text-yellow-800;
-  }
-
-  .badge-restricted {
-    @apply bg-red-100 text-red-800;
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
   }
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
+/* Selection styles */
+::selection {
+  background-color: #dcf4e6;
+  color: #134935;
 }
 
-::-webkit-scrollbar-track {
-  @apply bg-gray-100;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-gray-400 rounded;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-500;
+::-moz-selection {
+  background-color: #dcf4e6;
+  color: #134935;
 }

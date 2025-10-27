@@ -1,0 +1,38 @@
+@layer components {
+  .footer {
+    @apply bg-gray-900 text-white;
+    background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+  }
+  
+  .footer-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12;
+  }
+  
+  .footer-grid {
+    @apply grid grid-cols-1 md:grid-cols-4 gap-8;
+  }
+  
+  .footer-brand {
+    @apply col-span-1 md:col-span-2;
+  }
+  
+  .footer-section {
+    @apply space-y-4;
+  }
+  
+  .footer-title {
+    @apply text-lg font-semibold mb-4;
+  }
+  
+  .footer-link {
+    @apply text-gray-400 hover:text-white transition-colors block;
+  }
+  
+  .footer-bottom {
+    @apply border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center;
+  }
+  
+  .footer-disclaimer {
+    @apply text-gray-500 text-sm text-center mt-4 md:mt-0;
+  }
+}

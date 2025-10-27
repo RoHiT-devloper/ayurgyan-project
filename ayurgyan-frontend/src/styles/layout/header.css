@@ -1,0 +1,33 @@
+@layer components {
+  .header {
+    @apply bg-white shadow-sm border-b border-gray-200 sticky top-0 z-40;
+  }
+  
+  .header-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .header-content {
+    @apply flex justify-between items-center h-16;
+  }
+  
+  .logo {
+    @apply flex items-center space-x-2;
+  }
+  
+  .logo-icon {
+    @apply w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center;
+  }
+  
+  .logo-text {
+    @apply text-xl font-bold text-gray-900;
+  }
+  
+  .nav-desktop {
+    @apply hidden md:flex space-x-8;
+  }
+  
+  .nav-mobile {
+    @apply md:hidden fixed inset-0 bg-white z-50 p-6;
+  }
+}
