@@ -1,7 +1,7 @@
 export const SAFETY_LEVELS = {
-  SAFE: { label: 'Safe', color: 'bg-green-100 text-green-800' },
-  CAUTION: { label: 'Caution', color: 'bg-yellow-100 text-yellow-800' },
-  RESTRICTED: { label: 'Restricted', color: 'bg-red-100 text-red-800' }
+  SAFE: { label: 'Safe', color: 'safe' },
+  CAUTION: { label: 'Caution', color: 'caution' },
+  RESTRICTED: { label: 'Restricted', color: 'restricted' }
 };
 
 export const EVIDENCE_LEVELS = {

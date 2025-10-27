@@ -18,7 +18,7 @@ const HerbCard: React.FC<HerbCardProps> = ({ herb }) => {
           <h3 className="text-lg font-semibold text-gray-900 line-clamp-1">
             {herb.name}
           </h3>
-          <span className={`badge ${safetyInfo.color}`}>
+          <span className={`badge badge-${safetyInfo.color}`}>
             {safetyInfo.label}
           </span>
         </div>

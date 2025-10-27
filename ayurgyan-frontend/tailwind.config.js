@@ -8,22 +8,21 @@ export default {
     extend: {
       colors: {
         primary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
+          50: '#f0f9f4',
+          100: '#dcf4e6',
+          200: '#bce9d0',
+          300: '#88d8b1',
+          400: '#4dc390',
+          500: '#25a971',
+          600: '#1a8a5c',
+          700: '#176e4c',
+          800: '#15583e',
+          900: '#134935',
         }
       },
-      // Add ring color extension
-      ringColor: {
-        'primary-500': '#0ea5e9',
-      }
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
     },
   },
   plugins: [],
