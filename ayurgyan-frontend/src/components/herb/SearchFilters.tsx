@@ -1,6 +1,7 @@
 import React from 'react';
 import { Search, Filter } from 'lucide-react';
 import { SAFETY_LEVELS } from '../../utils/constants';
+import './SearchFilters.css';
 
 interface SearchFiltersProps {
   query: string;

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Herb } from '../../types/herb';
 import { getSafetyLevelInfo } from '../../utils/helpers';
+import './HerbCard.css';
 
 interface HerbCardProps {
   herb: Herb;

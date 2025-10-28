@@ -1,0 +1,422 @@
+.herb-detail-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Back Button */
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.875rem;
+  color: #6b7280;
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+  transition: color 0.2s;
+}
+
+.back-button:hover {
+  color: #374151;
+}
+
+.back-icon {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+}
+
+/* Header */
+.herb-header {
+  background: linear-gradient(135deg, #f0f9f4 0%, #fef9c3 100%);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.herb-header-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.herb-info {
+  flex: 1;
+}
+
+.herb-header-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.herb-name {
+  font-size: 2.25rem;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.herb-scientific-name {
+  font-size: 1.25rem;
+  color: #6b7280;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.herb-description {
+  color: #374151;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.herb-updated {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.herb-image {
+  margin-top: 1rem;
+  width: 12rem;
+  height: 12rem;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Tabs */
+.tabs-navigation {
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 1.5rem;
+}
+
+.tabs-list {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tab-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 0.25rem;
+  border-bottom: 2px solid transparent;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #6b7280;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tab-button:hover {
+  color: #374151;
+  border-bottom-color: #d1d5db;
+}
+
+.tab-button-active {
+  color: #25a971;
+  border-bottom-color: #25a971;
+}
+
+.tab-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Tab Content */
+.tab-content {
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+  margin-bottom: 2rem;
+}
+
+.tab-panel {
+  padding: 1.5rem;
+}
+
+/* Overview Tab */
+.overview-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.overview-section {
+  margin-bottom: 1.5rem;
+}
+
+.overview-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+.overview-content {
+  color: #374151;
+  line-height: 1.7;
+  white-space: pre-line;
+}
+
+/* Medicinal Uses Tab */
+.uses-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 1.5rem;
+}
+
+.uses-empty {
+  color: #6b7280;
+  text-align: center;
+  padding: 2rem;
+}
+
+.uses-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.use-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  border-left: 4px solid #88d8b1;
+}
+
+.use-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.use-condition {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #111827;
+}
+
+.use-detail {
+  margin-bottom: 0.75rem;
+}
+
+.use-label {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.25rem;
+}
+
+.use-value {
+  color: #374151;
+  margin-top: 0.25rem;
+}
+
+/* Scientific Studies Tab */
+.studies-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 1.5rem;
+}
+
+.studies-empty {
+  color: #6b7280;
+  text-align: center;
+  padding: 2rem;
+}
+
+.studies-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.study-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  border-left: 4px solid #93c5fd;
+}
+
+.study-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.study-title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #111827;
+}
+
+.study-meta {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 0.75rem;
+}
+
+.study-meta-item strong {
+  font-weight: 600;
+  color: #374151;
+}
+
+.study-findings {
+  margin-bottom: 0.75rem;
+}
+
+.study-findings strong {
+  font-weight: 600;
+  color: #374151;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.study-link {
+  color: #25a971;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.study-link:hover {
+  color: #1a8a5c;
+}
+
+/* Safety Info Tab */
+.safety-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.safety-section {
+  margin-bottom: 1.5rem;
+}
+
+.safety-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+.safety-content {
+  color: #374151;
+  line-height: 1.7;
+  white-space: pre-line;
+}
+
+.safety-empty {
+  color: #6b7280;
+}
+
+/* Medical Disclaimer */
+.medical-disclaimer {
+  background: #fefce8;
+  border: 1px solid #fef08a;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+.disclaimer-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.disclaimer-icon {
+  color: #d97706;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.disclaimer-title {
+  font-weight: 600;
+  color: #92400e;
+  margin-bottom: 0.25rem;
+}
+
+.disclaimer-text {
+  color: #92400e;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  .herb-detail-container {
+    padding: 2rem 1.5rem;
+  }
+  
+  .herb-header-content {
+    flex-direction: row;
+  }
+  
+  .herb-image {
+    margin-top: 0;
+    margin-left: 1.5rem;
+  }
+  
+  .overview-grid,
+  .safety-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .study-meta {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .herb-header {
+    padding: 2rem;
+  }
+  
+  .tab-panel {
+    padding: 2rem;
+  }
+}
+
+/* Loading and Not Found States */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1rem;
+}
+
+.not-found-container {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.not-found-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+/* Herb Image Container */
+.herb-image-container {
+  margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  .herb-image-container {
+    margin-top: 0;
+    margin-left: 1.5rem;
+  }
+}

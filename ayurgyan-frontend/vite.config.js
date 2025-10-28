@@ -21,9 +21,7 @@ export default defineConfig({
       },
     },
   },
-  css: {
-    postcss: './postcss.config.js',
-  },
+  // Remove the css.postcss configuration since we're not using PostCSS/TailwindCSS
   build: {
     outDir: 'dist',
     sourcemap: true,

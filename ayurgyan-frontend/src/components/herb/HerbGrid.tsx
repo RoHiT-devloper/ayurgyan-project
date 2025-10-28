@@ -1,6 +1,7 @@
 import React from 'react';
 import { Herb } from '../../types/herb';
 import HerbCard from './HerbCard';
+import './HerbGrid.css';
 
 interface HerbGridProps {
   herbs: Herb[];

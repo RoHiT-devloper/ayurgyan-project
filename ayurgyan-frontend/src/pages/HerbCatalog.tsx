@@ -4,6 +4,7 @@ import { herbService } from '../services/herbService';
 import HerbGrid from '../components/herb/HerbGrid';
 import SearchFilters from '../components/herb/SearchFilters';
 import LoadingSpinner from '../components/common/LoadingSpinner';
+import './HerbCatalog.css';
 
 const HerbCatalog: React.FC = () => {
   const [herbs, setHerbs] = useState<Herb[]>([]);
@@ -44,11 +45,11 @@ const HerbCatalog: React.FC = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+ <div className="catalog-container">
       {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Herb Catalog</h1>
-        <p className="text-gray-600">
+      <div className="catalog-header">
+        <h1 className="catalog-title">Herb Catalog</h1>
+        <p className="catalog-description">
           Explore our comprehensive database of traditional medicinal herbs
         </p>
       </div>
@@ -64,14 +65,14 @@ const HerbCatalog: React.FC = () => {
 
       {/* Results */}
       <div>
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-semibold text-gray-900">
+        <div className="results-header">
+          <h2 className="results-title">
             {loading ? 'Loading herbs...' : `${herbs.length} herbs found`}
           </h2>
           {!loading && (
             <button
               onClick={loadHerbs}
-              className="btn btn-secondary text-sm"
+              className="reset-button"
             >
               Reset Filters
             </button>
@@ -79,7 +80,7 @@ const HerbCatalog: React.FC = () => {
         </div>
 
         {loading ? (
-          <div className="flex justify-center py-12">
+          <div className="loading-container">
             <LoadingSpinner size="lg" />
           </div>
         ) : (

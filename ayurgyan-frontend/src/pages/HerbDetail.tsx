@@ -5,6 +5,7 @@ import { Herb } from '../types/herb';
 import { herbService } from '../services/herbService';
 import { getSafetyLevelInfo, getEvidenceLevelInfo, getEvidenceStrengthInfo, formatDate } from '../utils/helpers';
 import LoadingSpinner from '../components/common/LoadingSpinner';
+import './HerbDetail.css';
 
 const HerbDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -32,8 +33,8 @@ const HerbDetail: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex justify-center py-12">
+      <div className="herb-detail-container">
+        <div className="loading-container">
           <LoadingSpinner size="lg" />
         </div>
       </div>
@@ -42,9 +43,9 @@ const HerbDetail: React.FC = () => {
 
   if (!herb) {
     return (
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="text-center py-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Herb not found</h2>
+      <div className="herb-detail-container">
+        <div className="not-found-container">
+          <h2 className="not-found-title">Herb not found</h2>
           <Link to="/herbs" className="btn btn-primary">
             Back to Catalog
           </Link>
@@ -63,45 +64,45 @@ const HerbDetail: React.FC = () => {
   ];
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="herb-detail-container">
       {/* Back Button */}
       <Link
         to="/herbs"
-        className="inline-flex items-center text-sm text-gray-500 hover:text-gray-700 mb-6"
+        className="back-button"
       >
-        <ArrowLeft className="w-4 h-4 mr-2" />
+        <ArrowLeft className="back-icon" />
         Back to Herb Catalog
       </Link>
 
       {/* Header */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between">
-          <div className="flex-1">
-            <div className="flex items-start justify-between mb-4">
+      <div className="herb-header">
+        <div className="herb-header-content">
+          <div className="herb-info">
+            <div className="herb-header-top">
               <div>
-                <h1 className="text-3xl font-bold text-gray-900 mb-2">{herb.name}</h1>
+                <h1 className="herb-name">{herb.name}</h1>
                 {herb.scientificName && (
-                  <p className="text-xl text-gray-600 italic">{herb.scientificName}</p>
+                  <p className="herb-scientific-name">{herb.scientificName}</p>
                 )}
               </div>
-              <span className={`badge ${safetyInfo.color} text-sm`}>
+              <span className={`badge badge-${safetyInfo.color}`}>
                 {safetyInfo.label}
               </span>
             </div>
             
-            <p className="text-gray-700 mb-4">{herb.description}</p>
+            <p className="herb-description">{herb.description}</p>
             
-            <div className="flex items-center text-sm text-gray-500">
+            <div className="herb-updated">
               <span>Last updated: {formatDate(herb.updatedAt)}</span>
             </div>
           </div>
           
           {herb.imageUrl && (
-            <div className="mt-4 lg:mt-0 lg:ml-6">
+            <div className="herb-image-container">
               <img
                 src={herb.imageUrl}
                 alt={herb.name}
-                className="w-48 h-48 object-cover rounded-lg shadow-sm"
+                className="herb-image"
               />
             </div>
           )}
@@ -109,21 +110,17 @@ const HerbDetail: React.FC = () => {
       </div>
 
       {/* Tabs */}
-      <div className="border-b border-gray-200 mb-6">
-        <nav className="-mb-px flex space-x-8">
+      <div className="tabs-navigation">
+        <nav className="tabs-list">
           {tabs.map(tab => {
             const Icon = tab.icon;
             return (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 py-4 px-1 border-b-2 font-medium text-sm ${
-                  activeTab === tab.id
-                    ? 'border-primary-500 text-primary-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                }`}
+                className={`tab-button ${activeTab === tab.id ? 'tab-button-active' : ''}`}
               >
-                <Icon size={16} />
+                <Icon className="tab-icon" />
                 {tab.label}
               </button>
             );
@@ -132,21 +129,21 @@ const HerbDetail: React.FC = () => {
       </div>
 
       {/* Tab Content */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200">
+      <div className="tab-content">
         {/* Overview Tab */}
         {activeTab === 'overview' && (
-          <div className="p-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="tab-panel">
+            <div className="overview-grid">
               {/* Traditional Uses */}
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Traditional Uses</h3>
-                <p className="text-gray-700 whitespace-pre-line">{herb.traditionalUses}</p>
+              <div className="overview-section">
+                <h3 className="overview-title">Traditional Uses</h3>
+                <p className="overview-content">{herb.traditionalUses}</p>
               </div>
 
               {/* Active Compounds */}
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Active Compounds</h3>
-                <p className="text-gray-700">{herb.activeCompounds}</p>
+              <div className="overview-section">
+                <h3 className="overview-title">Active Compounds</h3>
+                <p className="overview-content">{herb.activeCompounds}</p>
               </div>
             </div>
           </div>
@@ -154,41 +151,41 @@ const HerbDetail: React.FC = () => {
 
         {/* Medicinal Uses Tab */}
         {activeTab === 'uses' && (
-          <div className="p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-6">Medicinal Uses</h3>
+          <div className="tab-panel">
+            <h3 className="uses-title">Medicinal Uses</h3>
             {herb.medicinalUses.length === 0 ? (
-              <p className="text-gray-500 text-center py-8">No medicinal uses documented yet.</p>
+              <p className="uses-empty">No medicinal uses documented yet.</p>
             ) : (
-              <div className="space-y-6">
+              <div className="uses-list">
                 {herb.medicinalUses.map((use) => {
                   const evidenceInfo = getEvidenceLevelInfo(use.evidenceLevel);
                   return (
-                    <div key={use.id} className="border border-gray-200 rounded-lg p-4">
-                      <div className="flex items-start justify-between mb-3">
-                        <h4 className="text-lg font-medium text-gray-900">{use.condition}</h4>
+                    <div key={use.id} className="use-card">
+                      <div className="use-header">
+                        <h4 className="use-condition">{use.condition}</h4>
                         <span className={`badge ${evidenceInfo.color}`}>
                           {evidenceInfo.label}
                         </span>
                       </div>
                       
                       {use.preparation && (
-                        <div className="mb-3">
-                          <strong className="text-gray-700">Preparation:</strong>
-                          <p className="text-gray-700 mt-1">{use.preparation}</p>
+                        <div className="use-detail">
+                          <strong className="use-label">Preparation:</strong>
+                          <p className="use-value">{use.preparation}</p>
                         </div>
                       )}
                       
                       {use.dosage && (
-                        <div className="mb-3">
-                          <strong className="text-gray-700">Dosage:</strong>
-                          <p className="text-gray-700 mt-1">{use.dosage}</p>
+                        <div className="use-detail">
+                          <strong className="use-label">Dosage:</strong>
+                          <p className="use-value">{use.dosage}</p>
                         </div>
                       )}
                       
                       {use.duration && (
-                        <div>
-                          <strong className="text-gray-700">Duration:</strong>
-                          <p className="text-gray-700 mt-1">{use.duration}</p>
+                        <div className="use-detail">
+                          <strong className="use-label">Duration:</strong>
+                          <p className="use-value">{use.duration}</p>
                         </div>
                       )}
                     </div>
@@ -201,56 +198,56 @@ const HerbDetail: React.FC = () => {
 
         {/* Scientific Studies Tab */}
         {activeTab === 'studies' && (
-          <div className="p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-6">Scientific Studies</h3>
+          <div className="tab-panel">
+            <h3 className="studies-title">Scientific Studies</h3>
             {herb.scientificStudies.length === 0 ? (
-              <p className="text-gray-500 text-center py-8">No scientific studies available yet.</p>
+              <p className="studies-empty">No scientific studies available yet.</p>
             ) : (
-              <div className="space-y-6">
+              <div className="studies-list">
                 {herb.scientificStudies.map((study) => {
                   const strengthInfo = getEvidenceStrengthInfo(study.evidenceStrength);
                   return (
-                    <div key={study.id} className="border border-gray-200 rounded-lg p-4">
-                      <div className="flex items-start justify-between mb-3">
-                        <h4 className="text-lg font-medium text-gray-900">{study.title}</h4>
+                    <div key={study.id} className="study-card">
+                      <div className="study-header">
+                        <h4 className="study-title">{study.title}</h4>
                         <span className={`badge ${strengthInfo.color}`}>
                           {strengthInfo.label}
                         </span>
                       </div>
                       
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600 mb-3">
-                        <div>
+                      <div className="study-meta">
+                        <div className="study-meta-item">
                           <strong>Authors:</strong> {study.authors}
                         </div>
-                        <div>
+                        <div className="study-meta-item">
                           <strong>Journal:</strong> {study.journal} ({study.publicationYear})
                         </div>
                         {study.studyType && (
-                          <div>
+                          <div className="study-meta-item">
                             <strong>Study Type:</strong> {study.studyType}
                           </div>
                         )}
                         {study.doi && (
-                          <div>
+                          <div className="study-meta-item">
                             <strong>DOI:</strong> {study.doi}
                           </div>
                         )}
                       </div>
                       
                       {study.findings && (
-                        <div>
-                          <strong className="text-gray-700">Findings:</strong>
-                          <p className="text-gray-700 mt-1">{study.findings}</p>
+                        <div className="study-findings">
+                          <strong>Findings:</strong>
+                          <p>{study.findings}</p>
                         </div>
                       )}
                       
                       {study.url && (
-                        <div className="mt-3">
+                        <div>
                           <a
                             href={study.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-primary-600 hover:text-primary-700 text-sm"
+                            className="study-link"
                           >
                             View Full Study →
                           </a>
@@ -266,25 +263,25 @@ const HerbDetail: React.FC = () => {
 
         {/* Safety Info Tab */}
         {activeTab === 'safety' && (
-          <div className="p-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="tab-panel">
+            <div className="safety-grid">
               {/* Contraindications */}
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Contraindications</h3>
+              <div className="safety-section">
+                <h3 className="safety-title">Contraindications</h3>
                 {herb.contraindications ? (
-                  <p className="text-gray-700 whitespace-pre-line">{herb.contraindications}</p>
+                  <p className="safety-content">{herb.contraindications}</p>
                 ) : (
-                  <p className="text-gray-500">No specific contraindications documented.</p>
+                  <p className="safety-empty">No specific contraindications documented.</p>
                 )}
               </div>
 
               {/* Side Effects */}
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Side Effects</h3>
+              <div className="safety-section">
+                <h3 className="safety-title">Side Effects</h3>
                 {herb.sideEffects ? (
-                  <p className="text-gray-700 whitespace-pre-line">{herb.sideEffects}</p>
+                  <p className="safety-content">{herb.sideEffects}</p>
                 ) : (
-                  <p className="text-gray-500">No side effects documented.</p>
+                  <p className="safety-empty">No side effects documented.</p>
                 )}
               </div>
             </div>
@@ -293,12 +290,12 @@ const HerbDetail: React.FC = () => {
       </div>
 
       {/* Medical Disclaimer */}
-      <div className="mt-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-        <div className="flex items-start gap-3">
-          <AlertTriangle className="text-yellow-600 mt-0.5 flex-shrink-0" size={20} />
+      <div className="medical-disclaimer">
+        <div className="disclaimer-content">
+          <AlertTriangle className="disclaimer-icon" size={20} />
           <div>
-            <h3 className="font-semibold text-yellow-800">Medical Disclaimer</h3>
-            <p className="text-yellow-700 text-sm mt-1">
+            <h3 className="disclaimer-title">Medical Disclaimer</h3>
+            <p className="disclaimer-text">
               This information is for educational purposes only and is not intended as medical advice. 
               Always consult with a qualified healthcare professional before using any herbal remedies. 
               Individual results may vary, and proper diagnosis and treatment should be obtained from healthcare providers.
